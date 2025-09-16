@@ -9,7 +9,7 @@ export default defineConfig({
   workers: 1,
   reporter: 'html',
   use: {
-    slowMo: 500,
+    slowMo: 18000,
     trace: 'on-first-retry',
     headless: false,
     screenshot: 'only-on-failure',

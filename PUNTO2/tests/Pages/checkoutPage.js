@@ -7,6 +7,27 @@ class CheckoutPage {
     this.agreeTerms = page.locator('input[name="agree"]');
     this.paymentMethodContinue = page.locator('#button-payment-method');
     this.confirmOrderBtn = page.locator('#button-confirm');
+
+    // Billing form fields
+    this.firstName = page.locator('input[name="firstname"]');
+    this.lastName = page.locator('input[name="lastname"]');
+    this.address1 = page.locator('input[name="address_1"]');
+    this.city = page.locator('input[name="city"]');
+    this.postcode = page.locator('input[name="postcode"]');
+    this.country = page.locator('select[name="country_id"]');
+    this.region = page.locator('select[name="zone_id"]');
+
+    this.agreeTerms = page.locator('input[name="agree"]');
+  }
+
+  async fillBillingDetails() {
+    await this.firstName.fill('Richard');
+    await this.lastName.fill('Guevara');
+    await this.address1.fill('123 Test Street');
+    await this.city.fill('Bogotá');
+    await this.postcode.fill('110111');
+    await this.country.selectOption({ label: 'Colombia' });
+    await this.region.selectOption({ index: 1 });
   }
 
   async completeCheckout() {

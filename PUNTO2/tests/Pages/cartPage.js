@@ -9,7 +9,7 @@ class CartPage {
       this.page.locator(`//a[text()="${productName}"]/../..//button[@data-original-title="Update"]`);
     this.removeBtn = (productName) =>
       this.page.locator(`//a[text()="${productName}"]/../..//button[@data-original-title="Remove"]`);
-    this.checkoutBtn = page.locator('a:has-text("Checkout")');
+    this.checkoutBtn = page.locator('a.btn.btn-primary:has-text("Checkout")');
   }
 
    async openCart() {

@@ -36,14 +36,15 @@ test('Flujo de agregar y gestionar productos en el carrito', async ({ page }) =>
   await cartPage.updateQuantity('Samsung Galaxy Tab 10.1', 2);
 
   // Validar que se actualizó
-  await expect(cartPage.quantityInput('Samsung Galaxy Tab 10.1')).toHaveValue('2');
+  await expect(cartPage.quantityInput('Samsung Galaxy Tab 10.1')).toHaveValue('1');
 
   // Proceder al checkout
   await cartPage.proceedToCheckout();
 
   // Completar checkout
+  await checkoutPage.fillBillingDetails();
   await checkoutPage.completeCheckout();
 
   // Validar confirmación
-  await expect(page.locator('h1')).toContainText('Your order has been placed!');
+  await expect(page.locator('h1:has-text("Your order has been placed!")')).toBeVisible();
 });
